@@ -1,29 +1,11 @@
 import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-
-const NAV_ITEMS = [
-  { to: '/', label: 'Home', end: true },
-  { to: '/projects', label: 'Portfolio' },
-  { to: '/about', label: 'About' },
-  { to: '/contact', label: 'Contact' },
-];
-
-function useTime() {
-  const [time, setTime] = useState('');
-  useEffect(() => {
-    const fmt = () => new Date().toLocaleTimeString('en-GB', {
-      hour: '2-digit', minute: '2-digit', timeZone: 'Asia/Ho_Chi_Minh',
-    });
-    setTime(fmt());
-    const id = setInterval(() => setTime(fmt()), 30000);
-    return () => clearInterval(id);
-  }, []);
-  return time;
-}
+import { useTheme, useLang } from '../context/AppContext';
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const time = useTime();
+  const { theme, toggleTheme } = useTheme();
+  const { lang, toggleLang, t } = useLang();
 
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : '';
@@ -32,20 +14,27 @@ export default function Navbar() {
 
   const close = () => setOpen(false);
 
+  const NAV_ITEMS = [
+    { to: '/', label: t.nav.home, end: true },
+    { to: '/projects', label: t.nav.portfolio },
+    { to: '/about', label: t.nav.about },
+    { to: '/contact', label: t.nav.contact },
+  ];
+
   return (
     <>
       {/* Fixed top status bar */}
       <div className="statusbar">
         <span className="pill">
           <span className="dot" />
-          Online
+          {t.statusbar.location.split(',')[0] === 'Based in Hà Nội' ? 'Online' : 'Online'}
         </span>
         <span className="sep">·</span>
-        <span className="statusbar-hide-sm">Based in Hà Nội, Việt Nam</span>
+        <span className="statusbar-hide-sm">{t.statusbar.location}</span>
         <span className="spacer" />
-        <span className="tag-mint statusbar-hide-sm">Available · 2026 Q2</span>
-        <span className="sep">·</span>
-        <span>Build 2026.05.09{time ? ' · ' + time : ''}</span>
+        <span className="tag-mint statusbar-hide-sm">{t.statusbar.available}</span>
+        <span className="sep statusbar-hide-sm">·</span>
+        <span className="statusbar-hide-sm">{t.statusbar.build}</span>
       </div>
 
       {/* Sticky app header */}
@@ -65,13 +54,24 @@ export default function Navbar() {
         </nav>
 
         <div className="headeractions">
-          <a
-            href="mailto:phamtung.gamedev@gmail.com"
-            className="btn statusbar-hide-sm"
-            style={{ fontSize: 11 }}
+          {/* Language toggle */}
+          <button
+            className="btn icon-btn statusbar-hide-sm"
+            onClick={toggleLang}
+            title={lang === 'en' ? 'Chuyển sang Tiếng Việt' : 'Switch to English'}
           >
-            Email me <span className="arrow">→</span>
-          </a>
+            {lang === 'en' ? 'VI' : 'EN'}
+          </button>
+
+          {/* Theme toggle */}
+          <button
+            className="btn icon-btn"
+            onClick={toggleTheme}
+            title={theme === 'dark' ? 'Light mode' : 'Dark mode'}
+          >
+            {theme === 'dark' ? '☀' : '◑'}
+          </button>
+
           <button
             className={`nav-hamburger${open ? ' is-open' : ''}`}
             onClick={() => setOpen(v => !v)}
@@ -113,13 +113,21 @@ export default function Navbar() {
           ))}
         </ul>
         <div className="nav-mobile-footer">
+          <div style={{ display: 'flex', gap: 8, marginBottom: 12 }}>
+            <button className="btn icon-btn" onClick={toggleLang} style={{ flex: 1, justifyContent: 'center' }}>
+              {lang === 'en' ? '🇻🇳 Tiếng Việt' : '🇬🇧 English'}
+            </button>
+            <button className="btn icon-btn" onClick={toggleTheme} style={{ flex: 1, justifyContent: 'center' }}>
+              {theme === 'dark' ? '☀ Light' : '◑ Dark'}
+            </button>
+          </div>
           <a
             href="mailto:phamtung.gamedev@gmail.com"
             className="btn primary"
             style={{ display: 'flex', justifyContent: 'center', width: '100%' }}
             onClick={close}
           >
-            Email me <span className="arrow">→</span>
+            {t.nav.email} <span className="arrow">→</span>
           </a>
         </div>
       </nav>

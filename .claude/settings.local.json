@@ -34,7 +34,13 @@
       "Bash(gh auth *)",
       "Bash(git init *)",
       "Bash(git add *)",
-      "Bash(git commit *)"
+      "Bash(git commit *)",
+      "Bash(xargs du -sh)",
+      "Bash(gh repo *)",
+      "Bash(git config *)",
+      "Bash(git remote *)",
+      "Bash(gh api *)",
+      "Bash(git push *)"
     ]
   }
 }

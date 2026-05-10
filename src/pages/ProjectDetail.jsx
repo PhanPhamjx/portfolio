@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { getAllProjects } from '../data/projects';
+import { useLang } from '../context/AppContext';
 import Reveal from '../components/Reveal';
 
 const ALL_IDS = [
@@ -73,6 +74,7 @@ function Gallery({ images, title }) {
 
 export default function ProjectDetail() {
   const { id } = useParams();
+  const { t } = useLang();
   const project = getAllProjects().find(p => p.id === id);
 
   if (!project) {
@@ -105,7 +107,7 @@ export default function ProjectDetail() {
     <div className="wrap detail-wrap">
 
       <Reveal>
-        <Link to="/projects" className="detail-back">← All productions</Link>
+        <Link to="/projects" className="detail-back">{t.detail.back}</Link>
         <h1 className="hero-title" style={{ fontSize: 'clamp(32px,5vw,72px)', margin: '14px 0 10px' }}>
           {project.title}
         </h1>
@@ -145,15 +147,15 @@ export default function ProjectDetail() {
       <Reveal>
         <div className="project-meta">
           <div className="cell">
-            <div className="k">Studio · Year</div>
+            <div className="k">{t.about.studioLabel}</div>
             <div className="v">{project.client || '—'} · {project.year}</div>
           </div>
           <div className="cell">
-            <div className="k">Engine</div>
+            <div className="k">{t.about.engineLabel}</div>
             <div className="v">{project.engine || '—'}</div>
           </div>
           <div className="cell">
-            <div className="k">Platforms</div>
+            <div className="k">{t.about.platformLabel}</div>
             <div className="v">
               {platforms.length > 0
                 ? platforms.map((p, i) => <span key={i} className={`platform-badge ${p.cls}`} style={{ marginRight: 6 }}>{p.label}</span>)
@@ -161,7 +163,7 @@ export default function ProjectDetail() {
             </div>
           </div>
           <div className="cell">
-            <div className="k">Role</div>
+            <div className="k">{t.about.roleLabel}</div>
             <div className="v">{project.role}</div>
           </div>
         </div>
@@ -171,8 +173,8 @@ export default function ProjectDetail() {
       <Reveal>
         <div className="project-body">
           <div>
-            <span className="eyebrow">01 / Overview</span>
-            <h3>About this project</h3>
+            <span className="eyebrow">{t.detail.s01}</span>
+            <h3>{t.detail.aboutProject}</h3>
             <p>{project.description}</p>
             {project.storeLink && (
               <p>
@@ -183,8 +185,8 @@ export default function ProjectDetail() {
             )}
           </div>
           <div>
-            <span className="eyebrow">02 / Contributions</span>
-            <h3>My role</h3>
+            <span className="eyebrow">{t.detail.s02}</span>
+            <h3>{t.detail.myRole}</h3>
             {project.contributions && project.contributions.length > 0 && (
               <ol>
                 {project.contributions.map((c, i) => <li key={i}>{c}</li>)}
@@ -198,8 +200,8 @@ export default function ProjectDetail() {
       {stack.length > 0 && (
         <Reveal>
           <div className="project-stack-section">
-            <span className="eyebrow">03 / Stack</span>
-            <h3>Tech stack</h3>
+            <span className="eyebrow">{t.detail.s03}</span>
+            <h3>{t.detail.techStack}</h3>
             <div className="project-stack">
               {stack.map((s, i) => (
                 <span key={i} className="skill primary">{s}</span>
@@ -213,9 +215,9 @@ export default function ProjectDetail() {
       {hasVideos && (
         <Reveal>
           <div style={{ marginBottom: 64 }}>
-            <span className="eyebrow">04 / Videos</span>
+            <span className="eyebrow">{t.detail.s04}</span>
             <h3 style={{ fontFamily: 'var(--ff-display)', fontWeight: 500, fontSize: 22, marginBottom: 14 }}>
-              Video showcase
+              {t.detail.videoShowcase}
             </h3>
             <div className="project-videos">
               {project.videos.map((src, i) => (
@@ -237,12 +239,12 @@ export default function ProjectDetail() {
       {hasImages && (
         <Reveal>
           <div style={{ marginBottom: 64 }}>
-            <span className="eyebrow">{hasVideos ? '05' : '04'} / Gallery</span>
+            <span className="eyebrow">{hasVideos ? '05' : '04'} / {t.detail.gallery}</span>
             <h3 style={{ fontFamily: 'var(--ff-display)', fontWeight: 500, fontSize: 22, marginBottom: 14 }}>
-              Image gallery
+              {t.detail.gallery}
               {project.images.length > 6 && (
                 <span style={{ fontSize: 13, fontFamily: 'var(--ff-mono)', color: 'var(--fg2)', marginLeft: 12 }}>
-                  {project.images.length} images
+                  {project.images.length} {t.detail.images}
                 </span>
               )}
             </h3>
@@ -255,13 +257,13 @@ export default function ProjectDetail() {
       <div className="project-nav">
         {prevProject && (
           <Link to={`/projects/${prevProject.id}`} className="prev">
-            <span className="navlabel">← Previous project</span>
+            <span className="navlabel">{t.detail.prev}</span>
             <span className="navtitle">{prevProject.title}</span>
           </Link>
         )}
         {nextProject && (
           <Link to={`/projects/${nextProject.id}`} className="next">
-            <span className="navlabel">Next project →</span>
+            <span className="navlabel">{t.detail.next}</span>
             <span className="navtitle">{nextProject.title}</span>
           </Link>
         )}

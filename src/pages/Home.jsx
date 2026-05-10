@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useRef, useState } from 'react';
 import { personalInfo, showreel, personalProjects } from '../data/projects';
+import { useLang } from '../context/AppContext';
 import Reveal from '../components/Reveal';
 
 const MARQUEE_TITLES = [
@@ -59,6 +60,7 @@ const CREDITS = [
 export default function Home() {
   const [playing, setPlaying] = useState(false);
   const videoRef = useRef(null);
+  const { t } = useLang();
 
   function handlePlay() {
     setPlaying(true);
@@ -90,14 +92,14 @@ export default function Home() {
           )}
           <div className="hero-overlay">
             <div className="hero-tags">
-              <span className="hero-tag accent">Generalist 3D · Technical Artist</span>
-              <span className="hero-tag">Unity · Unreal</span>
-              <span className="hero-tag">3+ years shipping games</span>
+              <span className="hero-tag accent">{t.home.heroTag1}</span>
+              <span className="hero-tag">{t.home.heroTag2}</span>
+              <span className="hero-tag">{t.home.heroTag3}</span>
             </div>
             <div className="hero-bottom">
               <h1 className="hero-title">
-                Building maps, shaders &amp;<br />
-                <strong>tools that ship on real hardware.</strong>
+                {t.home.heroTitle}<br />
+                <strong>{t.home.heroStrong}</strong>
               </h1>
               <div className="hero-meta">
                 <div>Demo Reel · 2026</div>
@@ -129,16 +131,12 @@ export default function Home() {
           <Reveal>
             <div className="section-head">
               <div className="label">
-                <span className="num">01 / Credits</span>
-                <span>Productions</span>
+                <span className="num">{t.home.s01label}</span>
+                <span>{t.home.s01span}</span>
               </div>
               <div>
-                <h2>Games I've helped ship.</h2>
-                <p className="lede">
-                  Mobile MMORPGs and console titles for studios across Vietnam and Japan — environment art,
-                  lighting, shaders and tooling. Roles vary; what's common is making the build run on the
-                  device the player actually has.
-                </p>
+                <h2>{t.home.s01h2}</h2>
+                <p className="lede">{t.home.s01lede}</p>
               </div>
             </div>
           </Reveal>
@@ -170,15 +168,12 @@ export default function Home() {
           <Reveal>
             <div className="section-head">
               <div className="label">
-                <span className="num">02 / Personal</span>
-                <span>Independent Work</span>
+                <span className="num">{t.home.s02label}</span>
+                <span>{t.home.s02span}</span>
               </div>
               <div>
-                <h2>Side projects &amp; self-directed R&amp;D.</h2>
-                <p className="lede">
-                  Work done outside studio hours — a game jam entry and anatomy studies that
-                  sharpen fundamentals and feed back into production quality.
-                </p>
+                <h2>{t.home.s02h2}</h2>
+                <p className="lede">{t.home.s02lede}</p>
               </div>
             </div>
           </Reveal>
@@ -221,18 +216,15 @@ export default function Home() {
           <Reveal>
             <div className="section-head">
               <div className="label">
-                <span className="num">03 / About</span>
-                <span>About</span>
+                <span className="num">{t.home.s03label}</span>
+                <span>{t.home.s03span}</span>
               </div>
               <div>
-                <h2>I'm Tùng — 3+ years building game art that ships.</h2>
-                <p className="lede">
-                  Environment art, shaders and editor tools across mobile MMORPG and console titles.
-                  Currently deepening into Technical Art at SaboGame.
-                </p>
+                <h2>{t.home.s03h2}</h2>
+                <p className="lede">{t.home.s03lede}</p>
                 <div className="cta-row">
                   <Link className="btn" to="/about">
-                    <span>Read full bio</span><span className="arrow">→</span>
+                    <span>{t.home.readBio}</span><span className="arrow">→</span>
                   </Link>
                 </div>
               </div>
@@ -247,17 +239,14 @@ export default function Home() {
           <Reveal>
             <div className="section-head">
               <div className="label">
-                <span className="num">Get in touch</span>
+                <span className="num">{t.home.ctaLabel}</span>
               </div>
               <div>
-                <h2>Have a build that needs an extra hand?</h2>
-                <p className="lede">
-                  Open to full-time technical art roles, contract environment work, and short shader / tool gigs.
-                  Studios in Hà Nội welcome — remote also fine.
-                </p>
+                <h2>{t.home.ctaH2}</h2>
+                <p className="lede">{t.home.ctaLede}</p>
                 <div className="cta-row">
                   <a className="btn primary" href={`mailto:${personalInfo.email}`}>
-                    <span>Email me</span><span className="arrow">→</span>
+                    <span>{t.home.emailBtn}</span><span className="arrow">→</span>
                   </a>
                   <a className="btn" href={personalInfo.socials.artstation} target="_blank" rel="noopener noreferrer">
                     <span>ArtStation</span><span className="arrow">↗</span>
