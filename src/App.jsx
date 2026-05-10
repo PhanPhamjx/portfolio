@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import ProjectsPage from './pages/ProjectsPage';
 import ProjectDetail from './pages/ProjectDetail';
+import ToolsPage from './pages/ToolsPage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 
@@ -47,7 +48,7 @@ function AppShell() {
           <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/projects/:id" element={<ProjectDetail />} />
           <Route path="/productions" element={<Navigate to="/" replace />} />
-          <Route path="/tools" element={<Navigate to="/about" replace />} />
+          <Route path="/tools" element={<ToolsPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
         </Routes>

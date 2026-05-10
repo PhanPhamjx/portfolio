@@ -40,7 +40,11 @@
       "Bash(git config *)",
       "Bash(git remote *)",
       "Bash(gh api *)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "Bash(echo \"README written: $?\")",
+      "Bash(mkdir -p \"C:/Temp/material-name-validator/blender\")",
+      "Bash(mkdir -p \"C:/Temp/material-name-validator/maya\")",
+      "Bash(/c/Users/Acer/AppData/Local/Microsoft/WindowsApps/python3 --version)"
     ]
   }
 }

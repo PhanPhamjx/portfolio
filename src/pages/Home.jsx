@@ -40,7 +40,7 @@ const CREDITS = [
     year: '2024', id: 'a-train-tourism',
     title: 'A-Train: All Aboard! Tourism', sub: 'Artdink',
     role: 'Asset Remaster · Topology · Texture Upscale',
-    platforms: [{ cls: 'switch', label: 'Switch' }, { cls: 'pc', label: 'PC' }], engine: 'Unreal',
+    platforms: [{ cls: 'switch', label: 'Switch' }, { cls: 'pc', label: 'PC' }], engine: 'Unity (Custom)',
   },
   {
     year: '2024', id: 'dragon-quest',
@@ -66,6 +66,7 @@ export default function Home() {
     setPlaying(true);
     if (videoRef.current) {
       videoRef.current.muted = false;
+      videoRef.current.volume = 0.5;
       videoRef.current.play();
     }
   }
@@ -86,6 +87,7 @@ export default function Home() {
               playsInline
               muted
               autoPlay
+              controls={playing}
             />
           ) : (
             <div className="hero-bg-placeholder">Drop demo reel poster (16:9)</div>

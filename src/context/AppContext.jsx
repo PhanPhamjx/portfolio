@@ -10,7 +10,7 @@ export const TRANSLATIONS = {
       available: 'Available · Q2 2026',
       build: 'Build 2026.05',
     },
-    nav: { home: 'Home', portfolio: 'Portfolio', about: 'About', contact: 'Contact', email: 'Email me' },
+    nav: { home: 'Home', portfolio: 'Portfolio', tools: 'Tools', about: 'About', contact: 'Contact', email: 'Email me' },
     home: {
       heroTag1: 'Generalist 3D · Technical Artist',
       heroTag2: 'Unity · Unreal',
@@ -64,7 +64,7 @@ export const TRANSLATIONS = {
       available: 'Sẵn sàng · Q2 2026',
       build: 'Build 2026.05',
     },
-    nav: { home: 'Trang chủ', portfolio: 'Portfolio', about: 'Giới thiệu', contact: 'Liên hệ', email: 'Email tôi' },
+    nav: { home: 'Trang chủ', portfolio: 'Portfolio', tools: 'Tools', about: 'Giới thiệu', contact: 'Liên hệ', email: 'Email tôi' },
     home: {
       heroTag1: 'Generalist 3D · Technical Artist',
       heroTag2: 'Unity · Unreal',

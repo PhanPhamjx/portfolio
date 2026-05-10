@@ -228,6 +228,7 @@ export default function ProjectDetail() {
                   playsInline
                   className="project-video"
                   preload="metadata"
+                  onLoadedMetadata={e => { e.target.volume = 0.5; }}
                 />
               ))}
             </div>

@@ -1,108 +1,205 @@
-import { Github } from 'lucide-react';
-import { tools, skillTiers, education } from '../data/projects';
+import { Link } from 'react-router-dom';
+import Reveal from '../components/Reveal';
+
+const REPOS = [
+  {
+    name: 'unity-art-tools',
+    lang: 'C#',
+    desc: 'Unity Editor utilities: batch import/export, asset audit, pivot baking, pre-build CI gate.',
+    stack: ['C#', 'Unity Editor API'],
+    url: 'https://github.com/PhanPhamjx/unity-art-tools',
+    files: ['BatchAssetImporter.cs', 'AssetAuditWindow.cs', 'PivotOriginReset.cs', 'PreBuildValidator.cs'],
+  },
+  {
+    name: 'material-name-validator',
+    lang: 'PY',
+    desc: 'Blender add-on + Maya script — validates and auto-fixes material naming conventions.',
+    stack: ['Python', 'Blender API', 'Maya API'],
+    url: 'https://github.com/PhanPhamjx/material-name-validator',
+    files: ['material_validator_blender.py', 'material_validator_maya.py'],
+  },
+  {
+    name: 'pipeline-checklist-tool',
+    lang: 'PY',
+    desc: 'PySide6 Qt desktop app: standardised art-pipeline checklist with JSON save and text export.',
+    stack: ['Python', 'PySide6 / Qt'],
+    url: 'https://github.com/PhanPhamjx/pipeline-checklist-tool',
+    files: ['checklist_tool.py', 'checklist_config.json'],
+  },
+];
+
+const TOOL_CARDS = [
+  {
+    lang: 'cs', langLabel: 'C#', filename: 'BatchAssetImporter.cs',
+    title: 'Batch Asset Importer',
+    body: 'Unity Editor window for art-team batch import / export with naming convention checks, FBX import preset routing, and a dry-run preview. Handles a few hundred meshes per pass.',
+    foot: 'shipped · in daily use',
+    repo: 'unity-art-tools',
+  },
+  {
+    lang: 'cs', langLabel: 'C#', filename: 'AssetAuditWindow.cs',
+    title: 'Asset Audit Tool',
+    body: 'Editor scanner that walks a Resources folder and flags poly-count, texture size, draw call and memory budget violations against per-tier rules. Outputs a CSV report for producers.',
+    foot: 'shipped · MMORPG mobile',
+    repo: 'unity-art-tools',
+  },
+  {
+    lang: 'cs', langLabel: 'C#', filename: 'PivotOriginReset.cs',
+    title: 'Pivot & Origin Reset',
+    body: 'Right-click context menu in the Project window — pick Bottom-Center, Bounds Center or World Origin, and the script bakes a new pivot. Also fixes scale-baking on imported FBX.',
+    foot: 'shipped · saves 20m / day',
+    repo: 'unity-art-tools',
+  },
+  {
+    lang: 'cs', langLabel: 'C#', filename: 'PreBuildValidator.cs',
+    title: 'Pre-build Validator',
+    body: "Pre-build hook that runs before every GitLab push — checks LOD setup, collider presence, texture compression overrides, missing references, and breaks the build with a readable report.",
+    foot: 'shipped · CI gate',
+    repo: 'unity-art-tools',
+  },
+  {
+    lang: 'py', langLabel: 'PY', filename: 'material_validator.py',
+    title: 'Material Name Validator',
+    body: 'Blender add-on + Maya script — validates M_<Name>_<Channel> convention across all scene materials, auto-maps loose aliases (diffuse → Alb, roughness → Rgh) and renames in one click.',
+    foot: 'shipped · 2 studios',
+    repo: 'material-name-validator',
+  },
+  {
+    lang: 'py', langLabel: 'PY', filename: 'checklist_tool.py',
+    title: 'Pipeline Checklist Tool',
+    body: 'PySide6 Qt desktop app: 5-stage pipeline checklist (Modeling, UV, Texturing, Export, AD Review) with per-item required flags, progress bars, JSON session save and plain-text export.',
+    foot: 'open source · configurable',
+    repo: 'pipeline-checklist-tool',
+  },
+];
+
+const REPO_URL = {
+  'unity-art-tools':          'https://github.com/PhanPhamjx/unity-art-tools',
+  'material-name-validator':  'https://github.com/PhanPhamjx/material-name-validator',
+  'pipeline-checklist-tool':  'https://github.com/PhanPhamjx/pipeline-checklist-tool',
+};
 
 export default function ToolsPage() {
   return (
-    <div className="page">
-      <div className="page-header">
-        <div className="container">
-          <div className="section-label">Technical Art</div>
-          <h1 className="page-title">Tools & Skills</h1>
-          <p className="page-desc">
-            Công cụ tự xây dựng, mức độ thành thạo và quá trình học tập.
-          </p>
-        </div>
+    <div className="about-page">
+      <div className="wrap">
+        <Reveal>
+          <div className="pageheader">
+            <span className="eyebrow">05 / Tools</span>
+            <h1>
+              Tools I've written{' '}
+              <em>for art teams.</em>
+            </h1>
+            <p className="lede">
+              Small Unity Editor utilities and Python pipeline scripts that pay for themselves in a sprint.
+              Each one was born out of a repeat task eating 30+ minutes a day from somebody on the team.
+            </p>
+          </div>
+        </Reveal>
       </div>
 
-      <div className="container page-body">
+      {/* ─── GITHUB REPOS ─── */}
+      <section className="section">
+        <div className="wrap">
+          <Reveal>
+            <div className="section-head">
+              <div className="label">
+                <span className="num">01 / Repos</span>
+                <span>Open Source</span>
+              </div>
+              <div>
+                <h2>Published on GitHub.</h2>
+                <p className="lede">Three repos — installable, documented, ready to drop into a Unity project or DCC pipeline.</p>
+              </div>
+            </div>
+          </Reveal>
 
-        {/* ─── SKILL TIERS (Wolf van Veen style) ─── */}
-        <section className="tools-section-block">
-          <div className="section-label">Proficiency Levels</div>
-          <h2 className="section-title-sm">Skills</h2>
-          <p className="section-subtitle" style={{ marginBottom: '36px' }}>
-            Mức độ thành thạo trong từng lĩnh vực, từ production-ready đến đang học.
-          </p>
-
-          <div className="skill-tiers">
-            {skillTiers.map(tier => (
-              <div key={tier.level} className="skill-tier">
-                <div className="tier-header">
-                  <div className="tier-dot" style={{ background: tier.color }} />
-                  <div>
-                    <div className="tier-level" style={{ color: tier.color }}>{tier.level}</div>
-                    <div className="tier-desc">{tier.description}</div>
+          <Reveal>
+            <div className="toolsgrid" style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}>
+              {REPOS.map(repo => (
+                <a
+                  key={repo.name}
+                  href={repo.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="toolcard"
+                  style={{ textDecoration: 'none' }}
+                >
+                  <div className="toolcard-head">
+                    <span className={`lang ${repo.lang.toLowerCase()}`}>{repo.lang}</span>
+                    <span className="name">{repo.name}</span>
                   </div>
-                </div>
-                <div className="tier-skills">
-                  {tier.skills.map(skill => (
-                    <span key={skill} className="tier-skill-tag" style={{ borderColor: tier.color + '40' }}>
-                      {skill}
+                  <div className="toolcard-body">
+                    <h4>{repo.name}</h4>
+                    <p>{repo.desc}</p>
+                    <div style={{ marginTop: 8, display: 'flex', flexWrap: 'wrap', gap: 4 }}>
+                      {repo.files.map(f => (
+                        <code key={f} style={{ fontSize: 10, background: 'var(--bg2)', padding: '2px 5px', borderRadius: 3 }}>{f}</code>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="toolcard-foot">
+                    <span style={{ display: 'flex', flexWrap: 'wrap', gap: 4 }}>
+                      {repo.stack.map(s => (
+                        <span key={s} className="skill primary" style={{ fontSize: 11 }}>{s}</span>
+                      ))}
                     </span>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* ─── CUSTOM TOOLS ─── */}
-        <section className="tools-section-block">
-          <div className="section-label">Built by me</div>
-          <h2 className="section-title-sm">Custom Tools & Scripts</h2>
-          <p className="section-subtitle" style={{ marginBottom: '32px' }}>
-            Công cụ tự phát triển để tối ưu pipeline.{' '}
-            <a href="https://github.com/PhanPhamjx" target="_blank" rel="noopener noreferrer" className="inline-link">
-              Xem GitHub →
-            </a>
-          </p>
-
-          <div className="tools-grid">
-            {tools.map(tool => (
-              <a
-                key={tool.id}
-                href={tool.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="tool-card"
-              >
-                <div className="tool-icon">{tool.icon}</div>
-                <h3 className="tool-name">{tool.name}</h3>
-                <p className="tool-desc">{tool.description}</p>
-                <div className="tool-stack">
-                  <span>{tool.stack.join(' · ')}</span>
-                  <Github size={13} />
-                </div>
-              </a>
-            ))}
-          </div>
-        </section>
-
-        {/* ─── EDUCATION ─── */}
-        <section className="tools-section-block">
-          <div className="section-label">Learning Path</div>
-          <h2 className="section-title-sm">Education & Training</h2>
-
-          <div className="education-list" style={{ marginTop: '28px' }}>
-            {education.map((edu, i) => (
-              <div key={i} className="education-item">
-                <div className="edu-dot" />
-                <div className="edu-content">
-                  <div className="edu-header">
-                    <span className="edu-degree">{edu.degree}</span>
-                    <span className="edu-period">{edu.period}</span>
+                    <span style={{ fontSize: 12, opacity: 0.6 }}>GitHub ↗</span>
                   </div>
-                  <div className="edu-school">
-                    {edu.school}
-                    {edu.note && <span className="edu-note"> — {edu.note}</span>}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
+                </a>
+              ))}
+            </div>
+          </Reveal>
+        </div>
+      </section>
 
-      </div>
+      {/* ─── TOOL DETAIL CARDS ─── */}
+      <section className="section">
+        <div className="wrap">
+          <Reveal>
+            <div className="section-head">
+              <div className="label">
+                <span className="num">02 / Detail</span>
+                <span>What each script does</span>
+              </div>
+              <div>
+                <h2>Six scripts, one problem each.</h2>
+                <p className="lede">
+                  Built to solve specific friction points in production — not theoretical utilities.
+                </p>
+              </div>
+            </div>
+          </Reveal>
+
+          <Reveal>
+            <div className="toolsgrid">
+              {TOOL_CARDS.map((t, i) => (
+                <a
+                  key={i}
+                  href={REPO_URL[t.repo]}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="toolcard"
+                  style={{ textDecoration: 'none' }}
+                >
+                  <div className="toolcard-head">
+                    <span className={`lang ${t.lang}`}>{t.langLabel}</span>
+                    <span className="name">{t.filename}</span>
+                  </div>
+                  <div className="toolcard-body">
+                    <h4>{t.title}</h4>
+                    <p>{t.body}</p>
+                  </div>
+                  <div className="toolcard-foot">
+                    <span className="ok">●</span>
+                    <span>{t.foot}</span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </Reveal>
+        </div>
+      </section>
     </div>
   );
 }

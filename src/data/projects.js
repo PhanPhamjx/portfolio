@@ -110,7 +110,7 @@ export const publishedProjects = [
     title: 'A-Train: All Aboard! Tourism',
     role: '3D Artist',
     client: 'Artdink',
-    engine: 'Unreal Engine',
+    engine: 'Unity (Custom Render)',
     year: '2024',
     platform: 'Nintendo Switch · PC',
     status: 'Published',
@@ -207,7 +207,7 @@ export const publishedProjects = [
     title: 'Võ Lâm Truyền Kỳ 1 — JX1 Remaster',
     role: 'Generalist 3D Artist',
     client: 'ADNX',
-    engine: 'Unity',
+    engine: 'Unity (Built-in)',
     year: '2025',
     platform: 'Mobile',
     status: 'Published',
@@ -388,10 +388,30 @@ export function getAllProjects() {
 
 // ── Tools ────────────────────────────────────────────────────────────────────
 export const tools = [
-  { id: 'unity-editor-tools', name: 'Unity Editor Toolset', icon: '⚙️', description: 'Batch import/export, asset audit, pivot reset, pre-build validator.', stack: ['C#', 'Unity Editor API'], github: 'https://github.com/PhanPhamjx' },
-  { id: 'material-validator', name: 'Material Name Validator', icon: '🔍', description: 'Python script kiểm tra và chuẩn hóa material naming trong Blender/Maya.', stack: ['Python', 'Blender API', 'Maya API'], github: 'https://github.com/PhanPhamjx' },
-  { id: 'pipeline-checklist', name: 'Pipeline Checklist Tool', icon: '✅', description: 'Bộ checklist nội bộ chuẩn hóa workflow, rút ngắn thời gian review.', stack: ['Python', 'Qt UI'], github: 'https://github.com/PhanPhamjx' },
-  { id: 'normal-map-tool', name: 'Normal Map Reuse Tool', icon: '🗺️', description: 'Tái sử dụng normal map trên nhiều asset — Dragon Quest HD-2D Remake.', stack: ['Python', 'Substance Painter'], github: 'https://github.com/PhanPhamjx' },
+  {
+    id: 'unity-art-tools',
+    name: 'unity-art-tools',
+    icon: '⚙',
+    description: 'Unity Editor utilities: batch import/export, asset audit, pivot baking, pre-build CI gate.',
+    stack: ['C#', 'Unity Editor API'],
+    github: 'https://github.com/PhanPhamjx/unity-art-tools',
+  },
+  {
+    id: 'material-name-validator',
+    name: 'material-name-validator',
+    icon: '🔍',
+    description: 'Blender add-on + Maya script: validates and auto-fixes material naming conventions.',
+    stack: ['Python', 'Blender API', 'Maya API'],
+    github: 'https://github.com/PhanPhamjx/material-name-validator',
+  },
+  {
+    id: 'pipeline-checklist-tool',
+    name: 'pipeline-checklist-tool',
+    icon: '✅',
+    description: 'PySide6 Qt desktop app: 5-stage art-pipeline checklist with JSON save and text export.',
+    stack: ['Python', 'PySide6 / Qt'],
+    github: 'https://github.com/PhanPhamjx/pipeline-checklist-tool',
+  },
 ];
 
 // ── Experience ───────────────────────────────────────────────────────────────

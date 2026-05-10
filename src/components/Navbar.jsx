@@ -17,6 +17,7 @@ export default function Navbar() {
   const NAV_ITEMS = [
     { to: '/', label: t.nav.home, end: true },
     { to: '/projects', label: t.nav.portfolio },
+    { to: '/tools', label: t.nav.tools },
     { to: '/about', label: t.nav.about },
     { to: '/contact', label: t.nav.contact },
   ];
@@ -32,9 +33,22 @@ export default function Navbar() {
         <span className="sep">·</span>
         <span className="statusbar-hide-sm">{t.statusbar.location}</span>
         <span className="spacer" />
-        <span className="tag-mint statusbar-hide-sm">{t.statusbar.available}</span>
-        <span className="sep statusbar-hide-sm">·</span>
-        <span className="statusbar-hide-sm">{t.statusbar.build}</span>
+        <button
+          className="btn icon-btn"
+          onClick={toggleLang}
+          title={lang === 'en' ? 'Chuyển sang Tiếng Việt' : 'Switch to English'}
+          style={{ fontSize: 11, padding: '2px 8px', height: 24 }}
+        >
+          {lang === 'en' ? 'VI' : 'EN'}
+        </button>
+        <button
+          className="btn icon-btn"
+          onClick={toggleTheme}
+          title={theme === 'dark' ? 'Light mode' : 'Dark mode'}
+          style={{ fontSize: 13, padding: '2px 6px', height: 24 }}
+        >
+          {theme === 'dark' ? '☀' : '◑'}
+        </button>
       </div>
 
       {/* Sticky app header */}
@@ -54,24 +68,14 @@ export default function Navbar() {
         </nav>
 
         <div className="headeractions">
-          {/* Language toggle */}
-          <button
-            className="btn icon-btn statusbar-hide-sm"
-            onClick={toggleLang}
-            title={lang === 'en' ? 'Chuyển sang Tiếng Việt' : 'Switch to English'}
+          <a
+            href="cv.pdf"
+            download="PhamThanhTung_CV.pdf"
+            className="btn primary statusbar-hide-sm"
+            style={{ fontSize: 13, padding: '8px 16px', letterSpacing: '0.08em' }}
           >
-            {lang === 'en' ? 'VI' : 'EN'}
-          </button>
-
-          {/* Theme toggle */}
-          <button
-            className="btn icon-btn"
-            onClick={toggleTheme}
-            title={theme === 'dark' ? 'Light mode' : 'Dark mode'}
-          >
-            {theme === 'dark' ? '☀' : '◑'}
-          </button>
-
+            Download CV <span className="arrow">↓</span>
+          </a>
           <button
             className={`nav-hamburger${open ? ' is-open' : ''}`}
             onClick={() => setOpen(v => !v)}
@@ -122,8 +126,17 @@ export default function Navbar() {
             </button>
           </div>
           <a
-            href="mailto:phamtung.gamedev@gmail.com"
+            href="cv.pdf"
+            download="PhamThanhTung_CV.pdf"
             className="btn primary"
+            style={{ display: 'flex', justifyContent: 'center', width: '100%', marginBottom: 8 }}
+            onClick={close}
+          >
+            Download CV <span className="arrow">↓</span>
+          </a>
+          <a
+            href="mailto:phamtung.gamedev@gmail.com"
+            className="btn"
             style={{ display: 'flex', justifyContent: 'center', width: '100%' }}
             onClick={close}
           >

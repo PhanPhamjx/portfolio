@@ -141,8 +141,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 .brand {
   display: flex; align-items: center; gap: 12px;
-  font: 600 13px/1 var(--ff-mono);
-  letter-spacing: 0.18em;
+  font: 600 16px/1 var(--ff-mono);
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--text);
   padding: 6px 10px 6px 6px;
@@ -154,11 +154,11 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .brand:hover { border-color: var(--line); background: var(--panel); }
 .brand:hover .brand-mark { box-shadow: 0 0 0 1px var(--accent), 0 0 18px -6px var(--accent); }
 .brand-mark {
-  width: 26px; height: 26px;
+  width: 32px; height: 32px;
   display: inline-grid; place-items: center;
   border: 1px solid var(--accent);
   color: var(--accent);
-  font: 700 11px/1 var(--ff-mono);
+  font: 700 13px/1 var(--ff-mono);
   background: linear-gradient(135deg, transparent 45%, rgba(122,240,168,0.16) 45%,
               rgba(122,240,168,0.16) 55%, transparent 55%);
   flex-shrink: 0;
@@ -171,12 +171,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .nav {
   display: flex; gap: 4px;
   justify-self: center;
-  font: 12px/1 var(--ff-mono);
-  letter-spacing: 0.14em;
+  font: 15px/1 var(--ff-mono);
+  letter-spacing: 0.10em;
   text-transform: uppercase;
 }
 .nav a {
-  padding: 10px 14px;
+  padding: 10px 16px;
   color: var(--text-2);
   border: 1px solid transparent;
   border-radius: 2px;
@@ -512,6 +512,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   text-align: center;
 }
 .work:hover .work-thumb-placeholder { color: var(--accent); }
+.work.span-3  { grid-column: span 3; }
 .work.span-4  { grid-column: span 4; }
 .work.span-6  { grid-column: span 6; }
 .work.span-8  { grid-column: span 8; }
@@ -609,6 +610,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   overflow: hidden;
   display: flex; flex-direction: column;
   transition: border-color .2s;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
 }
 .toolcard:hover { border-color: var(--accent-3); }
 .toolcard-head {
@@ -1116,7 +1120,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .credit-role, .credit-engine { display: none; }
 }
 @media (max-width: 1000px) {
-  .work.span-4, .work.span-6, .work.span-8 { grid-column: span 6; }
+  .work.span-3, .work.span-4, .work.span-6, .work.span-8 { grid-column: span 6; }
   .work.span-12 { grid-column: span 12; }
   .toolsgrid { grid-template-columns: repeat(2, 1fr); }
 }
@@ -1141,7 +1145,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .gallery-grid-rest { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 640px) {
-  .work.span-4, .work.span-6, .work.span-8, .work.span-12 { grid-column: span 12; }
+  .work.span-3, .work.span-4, .work.span-6, .work.span-8, .work.span-12 { grid-column: span 12; }
   .inspector { grid-template-columns: 1fr; }
   .inspector-panel.span-2 { grid-column: span 1; }
   .toolsgrid { grid-template-columns: 1fr; }

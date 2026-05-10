@@ -2,8 +2,8 @@ import { Link } from 'react-router-dom';
 import { publishedProjects } from '../data/projects';
 import Reveal from '../components/Reveal';
 
-// span layout pattern for 7 projects
-const SPANS = [8, 4, 6, 6, 4, 4, 4];
+// span layout pattern for 8 projects — audition is smallest (span-3)
+const SPANS = [8, 4, 6, 6, 4, 4, 4, 3];
 
 export default function ProjectsPage() {
   return (

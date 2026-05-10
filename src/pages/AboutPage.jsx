@@ -59,44 +59,6 @@ const INSPECTOR_PANELS = [
   },
 ];
 
-const TOOL_CARDS = [
-  {
-    lang: 'cs', langLabel: 'C#', filename: 'BatchAssetImporter.cs',
-    title: 'Batch Asset Importer',
-    body: 'Unity Editor window for art-team batch import / export with naming convention checks, FBX import preset routing, and a dry-run preview. Handles a few hundred meshes per pass.',
-    foot: 'shipped · in daily use',
-  },
-  {
-    lang: 'cs', langLabel: 'C#', filename: 'AssetAuditWindow.cs',
-    title: 'Asset Audit Tool',
-    body: 'Editor scanner that walks a Resources folder and flags poly-count, texture size, draw call and memory budget violations against per-tier rules. Outputs a CSV report for producers.',
-    foot: 'shipped · MMORPG mobile',
-  },
-  {
-    lang: 'cs', langLabel: 'C#', filename: 'PivotOriginReset.cs',
-    title: 'Pivot & Origin Reset',
-    body: 'Right-click context menu in the Project window — pick a vertex, the bottom-center, or the bounding box, and the script bakes a new pivot via a dummy parent transform. Also fixes scale-baking on imported FBX.',
-    foot: 'shipped · saves 20m / day',
-  },
-  {
-    lang: 'cs', langLabel: 'C#', filename: 'PreBuildValidator.cs',
-    title: 'Pre-build Validator',
-    body: 'Pre-build hook that runs before pushing to GitLab — checks LOD setup, collider presence, texture compression overrides, missing references, and breaks the build with a readable report if anything\'s off.',
-    foot: 'shipped · CI gate',
-  },
-  {
-    lang: 'py', langLabel: 'PY', filename: 'dcc_pipeline.py',
-    title: 'DCC Automation (Python)',
-    body: 'Maya / Blender side-scripts with PySide / Qt UIs — batch UV layout, retopo cleanup helpers, and an export-to-Unity wrapper that enforces our scale, axis and naming rules at source.',
-    foot: 'internal · 2 studios',
-  },
-  {
-    lang: 'hlsl', langLabel: 'HLSL', filename: 'env_shader_pack.shader',
-    title: 'Environment Shader Pack',
-    body: 'URP Shader Graph + HLSL hybrid: water with foam masks, height-fog, vertex foliage wind, and a generic dissolve with edge-glow. Tuned for mid-tier mobile (Adreno 6xx and up).',
-    foot: 'shipped · Phong Thần 3D',
-  },
-];
 
 export default function AboutPage() {
   return (
@@ -214,43 +176,30 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ─── TOOLS / SCRIPTS ─── */}
+      {/* Tools → see /tools tab */}
       <section className="section">
         <div className="wrap">
           <Reveal>
             <div className="section-head">
               <div className="label">
-                <span className="num">05 / Builds</span>
-                <span>Tools / Scripts</span>
+                <span className="num">05 / Tools</span>
+                <span>Scripts &amp; Utilities</span>
               </div>
               <div>
                 <h2>Tools I've written for art teams.</h2>
                 <p className="lede">
-                  Small Unity Editor utilities and Python pipeline scripts that pay for themselves in a sprint.
-                  Each one was born out of a repeat task eating 30+ minutes a day from somebody on the team.
+                  Unity Editor utilities in C# and Python pipeline scripts — batch import, asset audit,
+                  naming validation, pipeline checklist.
                 </p>
-              </div>
-            </div>
-          </Reveal>
-
-          <Reveal>
-            <div className="toolsgrid">
-              {TOOL_CARDS.map((t, i) => (
-                <div key={i} className="toolcard">
-                  <div className="toolcard-head">
-                    <span className={`lang ${t.lang}`}>{t.langLabel}</span>
-                    <span className="name">{t.filename}</span>
-                  </div>
-                  <div className="toolcard-body">
-                    <h4>{t.title}</h4>
-                    <p>{t.body}</p>
-                  </div>
-                  <div className="toolcard-foot">
-                    <span className="ok">●</span>
-                    <span>{t.foot}</span>
-                  </div>
+                <div className="cta-row" style={{ marginTop: 20 }}>
+                  <a className="btn" href="#/tools">
+                    <span>View Tools tab</span><span className="arrow">→</span>
+                  </a>
+                  <a className="btn" href="https://github.com/PhanPhamjx" target="_blank" rel="noopener noreferrer">
+                    <span>GitHub</span><span className="arrow">↗</span>
+                  </a>
                 </div>
-              ))}
+              </div>
             </div>
           </Reveal>
         </div>
