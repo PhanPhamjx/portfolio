@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact — Phạm Thanh Tùng</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-screen-label="contact">
+  <div id="shell-header"></div>
+
+  <main>
+    <section class="wrap" style="padding-top: 32px">
+      <div class="contact" data-reveal>
+        <div>
+          <span class="eyebrow">06 / Contact</span>
+          <h2 class="contact-headline">
+            <span data-i18n="contact.title">Let's build something</span>
+            <em data-i18n="contact.titleem">that ships.</em><span class="blink"></span>
+          </h2>
+          <p class="lede" data-i18n="contact.lede">Best place to reach me is email or ArtStation. I read both within a day. For studios in Hà Nội we can also meet for cà phê.</p>
+        </div>
+
+        <div class="contact-list">
+          <a class="contact-row" href="mailto:phamtung.gamedev@gmail.com">
+            <span class="k" data-i18n="contact.k.email">Email</span>
+            <span class="v">phamtung.gamedev@gmail.com</span>
+            <button class="copy" type="button" data-copy="phamtung.gamedev@gmail.com" data-i18n="contact.copy">Copy</button>
+          </a>
+          <a class="contact-row" href="tel:+84332577358">
+            <span class="k" data-i18n="contact.k.phone">Phone</span>
+            <span class="v">+84 332 577 358</span>
+            <button class="copy" type="button" data-copy="+84332577358" data-i18n="contact.copy">Copy</button>
+          </a>
+          <div class="contact-row">
+            <span class="k" data-i18n="contact.k.location">Based</span>
+            <span class="v" data-i18n="contact.v.location">Hà Nội, Việt Nam (UTC+7)</span>
+            <span class="copy" style="border-color:transparent;background:transparent;cursor:default">UTC+7</span>
+          </div>
+          <a class="contact-row" href="https://github.com/PhanPhamjx" target="_blank" rel="noopener">
+            <span class="k" data-i18n="contact.k.github">GitHub</span>
+            <span class="v">github.com/PhanPhamjx</span>
+            <span class="copy">Open ↗</span>
+          </a>
+          <a class="contact-row" href="https://artstation.com/phanpham2k" target="_blank" rel="noopener">
+            <span class="k" data-i18n="contact.k.artstation">ArtStation</span>
+            <span class="v">artstation.com/phanpham2k</span>
+            <span class="copy">Open ↗</span>
+          </a>
+          <div class="contact-row" style="border-color:rgba(122,240,168,0.25)">
+            <span class="k" data-i18n="contact.k.avail">Status</span>
+            <span class="v" style="color:var(--accent)" data-i18n="contact.v.avail">Open · Q2 2026 · FT or Contract</span>
+            <span class="copy" style="color:var(--accent);border-color:rgba(122,240,168,0.25)">●</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="shell-footer"></div>
+  <script src="shell.js"></script>
+  <script>PTT.mount("contact");</script>
+</body>
+</html>

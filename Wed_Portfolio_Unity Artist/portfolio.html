@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portfolio — Phạm Thanh Tùng</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <script src="image-slot.js"></script>
+</head>
+<body data-screen-label="portfolio">
+  <div id="shell-header"></div>
+
+  <main>
+    <section class="wrap pageheader" data-reveal>
+      <span class="eyebrow">02 / Portfolio</span>
+      <h1>
+        <span data-i18n="page.portfolio.title">All work</span>
+        <em data-i18n="page.portfolio.titleem">30 pieces.</em>
+      </h1>
+      <p class="lede" data-i18n="page.portfolio.lede">Environment art, shaders, VFX, modular kits, and editor tooling — pulled from shipped projects, freelance and personal R&amp;D. Tap any tile to drop in your own screenshots.</p>
+    </section>
+
+    <section class="section" style="padding-top:48px">
+      <div class="wrap">
+        <div class="workgrid" data-reveal id="all-work"></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="shell-footer"></div>
+  <script src="shell.js"></script>
+  <script>
+    // 30 portfolio slots, mixed sizes for visual rhythm.
+    const PORTFOLIO = [
+      {span:8, ratio:"wide",  title:"Phong Thần — Hero Scene",         cat:"ENVIRONMENT", badge:"Unity URP",  featured:true},
+      {span:4, ratio:"tall",  title:"Foliage Wind Shader",             cat:"SHADER",      badge:"HLSL"},
+      {span:4, ratio:"",      title:"Stylised Water — URP",             cat:"SHADER",      badge:"Shader Graph"},
+      {span:4, ratio:"",      title:"Modular Ruins Kit",                cat:"MODELING",    badge:"Blender"},
+      {span:4, ratio:"",      title:"Asset Audit Tool",                 cat:"TOOL",        badge:"Editor C#"},
+      {span:6, ratio:"",      title:"Dissolve / Edge-Glow VFX",          cat:"VFX",         badge:"Shader Graph"},
+      {span:6, ratio:"",      title:"HD-2D Lighting Study",             cat:"LIGHTING",    badge:"Unreal"},
+      {span:4, ratio:"",      title:"Tile Blending Pipeline",           cat:"PIPELINE",    badge:"Unity 2D"},
+      {span:4, ratio:"tall",  title:"Hand-Painted Stylised Tree",       cat:"MODELING",    badge:"ZBrush"},
+      {span:4, ratio:"",      title:"Height Fog — URP",                 cat:"SHADER",      badge:"Shader Graph"},
+      {span:6, ratio:"wide",  title:"Kiếm Hiệp — Map Build",            cat:"ENVIRONMENT", badge:"Unity 2D"},
+      {span:6, ratio:"wide",  title:"JX1 Remaster — Map",                cat:"ENVIRONMENT", badge:"Unity"},
+      {span:4, ratio:"",      title:"Pivot & Origin Reset",             cat:"TOOL",        badge:"Editor C#"},
+      {span:4, ratio:"",      title:"Dragon Quest — Architecture",      cat:"MODELING",    badge:"Unreal"},
+      {span:4, ratio:"",      title:"A-Train — Train Hard-Surface",     cat:"MODELING",    badge:"Maya"},
+      {span:4, ratio:"tall",  title:"Audition — Costume Pack",          cat:"CHARACTER",   badge:"Substance"},
+      {span:8, ratio:"wide",  title:"A-Train Tourism — Remaster",        cat:"ENVIRONMENT", badge:"Unreal"},
+      {span:4, ratio:"",      title:"Pre-build Validator",              cat:"TOOL",        badge:"CI Hook"},
+      {span:4, ratio:"",      title:"Foam Mask — Beach Water",          cat:"SHADER",      badge:"HLSL"},
+      {span:4, ratio:"",      title:"Stylised Cliff Material",          cat:"SHADER",      badge:"Shader Graph"},
+      {span:4, ratio:"",      title:"Rocks & Boulders — Trim Sheet",    cat:"MODELING",    badge:"Substance"},
+      {span:6, ratio:"",      title:"Batch Asset Importer",             cat:"TOOL",        badge:"Editor C#"},
+      {span:6, ratio:"",      title:"DCC Automation — Qt UI",           cat:"PIPELINE",    badge:"Python"},
+      {span:4, ratio:"tall",  title:"Hero Prop — Sword",                cat:"MODELING",    badge:"ZBrush"},
+      {span:4, ratio:"",      title:"Forest Decals & Particles",        cat:"VFX",         badge:"Particles"},
+      {span:4, ratio:"",      title:"Hand-Paint — Stone Bridge",        cat:"TEXTURING",   badge:"Photoshop"},
+      {span:4, ratio:"",      title:"Lantern — Glow Material",          cat:"SHADER",      badge:"Shader Graph"},
+      {span:4, ratio:"",      title:"Editor — Asset Snapshot",           cat:"TOOL",        badge:"Editor C#"},
+      {span:4, ratio:"",      title:"Personal — Stylised Diorama",      cat:"PERSONAL",    badge:"Blender"},
+      {span:12, ratio:"wide", title:"Reel — End Card",                  cat:"REEL",        badge:"H.264"},
+    ];
+
+    const grid = document.getElementById("all-work");
+    grid.innerHTML = PORTFOLIO.map((w, i) => {
+      const ratioCls = w.ratio ? " " + w.ratio : "";
+      const featured = w.featured ? '<span class="badge live">● Featured</span>' : "";
+      const href = w.parent ? `project.html?id=${w.parent}` : `project.html?id=phong-than-3d`;
+      return `
+        <a class="work span-${w.span}${ratioCls}" href="${href}">
+          <div class="work-thumb">
+            <image-slot id="port-${String(i+1).padStart(2,"0")}" placeholder="${w.title}"></image-slot>
+          </div>
+          <div class="work-overlay">${featured}<span class="badge">${w.badge}</span></div>
+          <div class="work-meta">
+            <h3>${w.title}</h3>
+            <span class="work-tag cat">${w.cat}</span>
+          </div>
+        </a>
+      `;
+    }).join("");
+  </script>
+  <script>PTT.mount("portfolio");</script>
+</body>
+</html>

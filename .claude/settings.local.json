@@ -1,0 +1,40 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "Bash(npm install *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5174/)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5175/)",
+      "WebFetch(domain:wolfvanveen.art)",
+      "Bash(python3 -c ' *)",
+      "Bash(python3 *)",
+      "Bash(node *)",
+      "Bash(npx vite *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5174)",
+      "Bash(Get-ChildItem -Path \"E:\\\\1.du_an\\\\CV+Portfolio\\\\phan-portfolio\\\\phan-portfolio\" -Recurse -Force)",
+      "Bash(Select-Object FullName, PSIsContainer)",
+      "Bash(Sort-Object FullName)",
+      "Bash(Format-Table -AutoSize)",
+      "Bash(grep -E \"\\\\.\\(md|txt\\)$\")",
+      "Bash(Get-ChildItem \"E:\\\\1.du_an\" -Recurse -Depth 3 -Directory)",
+      "Bash(Select-Object FullName)",
+      "PowerShell(Get-ChildItem -Path \"E:\\\\1.du_an\\\\CV+Portfolio\\\\phan-portfolio\\\\phan-portfolio\" -Directory -Force | Where-Object { $_.Name -match '^[0-9]+_' } | Select-Object FullName)",
+      "PowerShell(Get-ChildItem -Path \"E:\\\\1.du_an\\\\CV+Portfolio\\\\phan-portfolio\\\\phan-portfolio\" -Force | Select-Object FullName, PSIsContainer | Where-Object { $_.PSIsContainer -eq $true })",
+      "PowerShell(Get-ChildItem -Path \"E:\\\\1.du_an\\\\CV+Portfolio\\\\phan-portfolio\\\\phan-portfolio\\\\AllProject\" -Recurse -File | ForEach-Object { $_.FullName })",
+      "PowerShell(Get-ChildItem -Path \"E:\\\\1.du_an\\\\CV+Portfolio\\\\phan-portfolio\\\\phan-portfolio\\\\PersonaProject\" -Recurse -File | ForEach-Object { $_.FullName })",
+      "PowerShell(Get-ChildItem -Path \"E:\\\\1.du_an\\\\CV+Portfolio\\\\phan-portfolio\\\\phan-portfolio\\\\myAvatar\" -Recurse -File | ForEach-Object { $_.FullName })",
+      "Bash(dir *)",
+      "PowerShell(Get-ChildItem -Recurse -File \"E:\\\\1.du_an\\\\CV+Portfolio\\\\phan-portfolio\\\\phan-portfolio\\\\public\\\\images\\\\projects\" | ForEach-Object { $_.FullName.Replace\\(\"E:\\\\1.du_an\\\\CV+Portfolio\\\\phan-portfolio\\\\phan-portfolio\\\\public\", \"\"\\) })",
+      "PowerShell(Get-ChildItem -Recurse -File \"E:\\\\1.du_an\\\\CV+Portfolio\\\\AllProject\" | Where-Object { $_.Name -match \"panel_BG|mainpanel|panel_bg|main_panel|panelBG\" -or $_.Name -match \"thumb\" } | Select-Object FullName)",
+      "PowerShell(Get-ChildItem -Recurse \"E:\\\\1.du_an\\\\CV+Portfolio\\\\phan-portfolio\\\\phan-portfolio\\\\public\\\\images\\\\projects\" | Where-Object { $_.Name -match \"panel|thumb|main\" } | ForEach-Object { $_.FullName.Replace\\(\"E:\\\\1.du_an\\\\CV+Portfolio\\\\phan-portfolio\\\\phan-portfolio\\\\public\", \"\"\\) })",
+      "PowerShell(Get-ChildItem -Recurse \"E:\\\\1.du_an\\\\CV+Portfolio\\\\phan-portfolio\\\\phan-portfolio\\\\public\\\\images\\\\projects\" | Where-Object { $_.Name -match \"panel_BG|panelmain|mainpanel\" } | ForEach-Object { $_.FullName.Replace\\(\"E:\\\\1.du_an\\\\CV+Portfolio\\\\phan-portfolio\\\\phan-portfolio\\\\public\",\"\"\\) })",
+      "PowerShell(Get-ChildItem -Path \"E:\\\\1.du_an\\\\CV+Portfolio\" -Recurse -ErrorAction SilentlyContinue | Where-Object { $_.Name -match \"PhongThan|phong-than|allproject|AllProject\" } | Select-Object FullName)",
+      "Bash(mkdir -p \"E:/1.du_an/CV+Portfolio/phan-portfolio/phan-portfolio/public/images/projects/phong-than-3d\")",
+      "Bash(cp \"E:/1.du_an/CV+Portfolio/phan-portfolio/phan-portfolio/AllProject/5_PhongThan3D\\(Demo\\)/\"* \"E:/1.du_an/CV+Portfolio/phan-portfolio/phan-portfolio/public/images/projects/phong-than-3d/\")",
+      "Bash(gh auth *)",
+      "Bash(git init *)",
+      "Bash(git add *)",
+      "Bash(git commit *)"
+    ]
+  }
+}

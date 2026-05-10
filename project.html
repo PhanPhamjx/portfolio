@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Project — Phạm Thanh Tùng</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <script src="image-slot.js"></script>
+  <script src="projects.js"></script>
+</head>
+<body data-screen-label="project">
+  <div id="shell-header"></div>
+
+  <main>
+    <section class="wrap" style="padding-top: 32px">
+      <div id="project-root"></div>
+    </section>
+  </main>
+
+  <div id="shell-footer"></div>
+  <script src="shell.js"></script>
+  <script>
+    const params = new URLSearchParams(location.search);
+    const slug = params.get("id") || window.PROJECTS_ORDER[0];
+    const data = window.PROJECTS[slug];
+
+    const lang = localStorage.getItem("ptt_lang") || "en";
+    const T = window.I18N[lang] || window.I18N.en;
+
+    function platformBadge(p) {
+      const labels = { mobile: "Mobile", switch: "Switch", pc: "PC", ps: "PS" };
+      return `<span class="platform-badge ${p}">${labels[p] || p}</span>`;
+    }
+
+    function findNeighbours(currentSlug) {
+      const order = window.PROJECTS_ORDER;
+      const i = order.indexOf(currentSlug);
+      const prev = i > 0 ? order[i - 1] : order[order.length - 1];
+      const next = i < order.length - 1 ? order[i + 1] : order[0];
+      return { prev, next };
+    }
+
+    function gallerySlots(n, slug) {
+      // Layout patterns by count: 1 hero + N supporting, asymmetric.
+      const layouts = {
+        4: [12, 6, 6, 12],
+        5: [12, 8, 4, 6, 6],
+        6: [12, 8, 4, 6, 3, 3],
+      };
+      const pattern = layouts[n] || layouts[6];
+      return pattern.map((sp, idx) => `
+        <div class="slot s-${sp}">
+          <image-slot id="${slug}-g${idx + 1}" placeholder="${data.title} — shot ${idx + 1}"></image-slot>
+          <span class="cap">${String(idx + 1).padStart(2,"0")} · ${data.title}</span>
+        </div>
+      `).join("");
+    }
+
+    function render() {
+      if (!data) {
+        document.getElementById("project-root").innerHTML = `
+          <div class="pageheader">
+            <span class="eyebrow">404</span>
+            <h1>Project not found.</h1>
+            <p class="lede">The slug "${slug}" doesn't match a known project. <a href="portfolio.html" style="color:var(--accent)">Back to portfolio →</a></p>
+          </div>`;
+        return;
+      }
+
+      const { prev, next } = findNeighbours(slug);
+      const prevTitle = window.PROJECTS[prev]?.title || prev;
+      const nextTitle = window.PROJECTS[next]?.title || next;
+
+      const labels = lang === "vi"
+        ? { back: "← Tất cả productions", category: "Phân loại", role: "Vai trò", studio: "Studio · Năm",
+            engine: "Engine", platforms: "Nền tảng", about: "Về dự án", aboutNum: "01 / Tổng quan",
+            myrole: "Vai trò của tôi", myroleNum: "02 / Đóng góp",
+            stack: "Tech Stack", stackNum: "03 / Stack",
+            gallery: "Thư viện ảnh", galleryNum: "04 / Gallery", galleryHint: "Kéo thả ảnh vào ô bất kỳ.",
+            prev: "Dự án trước", next: "Dự án tiếp theo" }
+        : { back: "← All productions", category: "Category", role: "Role", studio: "Studio · Year",
+            engine: "Engine", platforms: "Platforms", about: "About this project", aboutNum: "01 / Overview",
+            myrole: "My role", myroleNum: "02 / Contributions",
+            stack: "Tech stack", stackNum: "03 / Stack",
+            gallery: "Image gallery", galleryNum: "04 / Gallery", galleryHint: "Drop images into any slot.",
+            prev: "Previous project", next: "Next project" };
+
+      document.getElementById("project-root").innerHTML = `
+        <div data-reveal>
+          <a href="portfolio.html" class="eyebrow" style="text-decoration:none">${labels.back}</a>
+          <h1 class="hero-title" style="font-size:clamp(40px,6vw,80px); margin:14px 0 10px">${data.title}</h1>
+          <p class="lede" style="max-width:64ch; margin-bottom:32px">${data.summary[lang] || data.summary.en}</p>
+        </div>
+
+        <div class="project-hero" data-reveal>
+          <image-slot id="${slug}-hero" placeholder="${data.title} — hero shot (21:9)"></image-slot>
+          <div class="overlay">${data.platforms.map(platformBadge).join("")}</div>
+        </div>
+
+        <div class="project-meta" data-reveal>
+          <div class="cell"><div class="k">${labels.studio}</div><div class="v">${data.studio} · ${data.year}</div></div>
+          <div class="cell"><div class="k">${labels.engine}</div><div class="v">${data.engine}</div></div>
+          <div class="cell"><div class="k">${labels.platforms}</div><div class="v">${data.platforms.map(platformBadge).join(" ")}</div></div>
+          <div class="cell"><div class="k">${labels.role}</div><div class="v">${data.role[lang] || data.role.en}</div></div>
+        </div>
+
+        <div class="project-body" data-reveal>
+          <div>
+            <span class="eyebrow">${labels.aboutNum}</span>
+            <h3>${labels.about}</h3>
+            <p>${data.summary[lang] || data.summary.en}</p>
+            <p style="color:var(--text-3); font-size:14px">
+              <strong style="color:var(--text-2)">${labels.category}:</strong> ${data.category[lang] || data.category.en}
+            </p>
+          </div>
+          <div>
+            <span class="eyebrow">${labels.myroleNum}</span>
+            <h3>${labels.myrole}</h3>
+            <ol>
+              ${(data.contributions[lang] || data.contributions.en).map(c => `<li><span></span><span>${c}</span></li>`).join("")}
+            </ol>
+          </div>
+        </div>
+
+        <div data-reveal style="margin-bottom:56px">
+          <span class="eyebrow">${labels.stackNum}</span>
+          <h3 style="font-family:var(--ff-display); font-weight:500; font-size:22px; margin:0 0 14px">${labels.stack}</h3>
+          <div class="project-stack">${data.stack.map(s => `<span class="skill primary">${s}</span>`).join("")}</div>
+        </div>
+
+        <div data-reveal>
+          <div class="section-head" style="margin-bottom:24px">
+            <div class="label">
+              <span class="num">${labels.galleryNum}</span>
+              <span>${labels.gallery}</span>
+            </div>
+            <div>
+              <h2 style="font-size:32px; margin:0">${data.title} — ${labels.gallery}</h2>
+              <p class="lede" style="margin-top:10px">${labels.galleryHint}</p>
+            </div>
+          </div>
+          <div class="project-gallery">${gallerySlots(data.gallery, slug)}</div>
+        </div>
+
+        <div class="project-nav">
+          <a class="prev" href="project.html?id=${prev}">
+            <span class="navlabel">← ${labels.prev}</span>
+            <span class="navtitle">${prevTitle}</span>
+          </a>
+          <a class="next" href="project.html?id=${next}">
+            <span class="navlabel">${labels.next} →</span>
+            <span class="navtitle">${nextTitle}</span>
+          </a>
+        </div>
+      `;
+
+      document.title = `${data.title} — Phạm Thanh Tùng`;
+    }
+
+    render();
+
+    // Re-render when language toggle is clicked.
+    document.addEventListener("click", (e) => {
+      const btn = e.target.closest(".langtoggle button");
+      if (!btn) return;
+      // shell.js has updated localStorage by the time the click bubbles here
+      // on the next microtask — defer so we read the new value.
+      setTimeout(() => {
+        const newLang = localStorage.getItem("ptt_lang") || "en";
+        if (newLang !== window.__pttCurrentLang) {
+          window.__pttCurrentLang = newLang;
+          location.reload(); // simplest — cleanly re-renders project body
+        }
+      }, 50);
+    });
+    window.__pttCurrentLang = lang;
+  </script>
+  <script>PTT.mount("portfolio");</script>
+</body>
+</html>

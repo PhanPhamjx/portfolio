@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About — Phạm Thanh Tùng</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <script src="image-slot.js"></script>
+</head>
+<body data-screen-label="about">
+  <div id="shell-header"></div>
+
+  <main>
+    <section class="wrap pageheader" data-reveal>
+      <span class="eyebrow">03 / About</span>
+      <h1>
+        <span data-i18n="page.about.title">Phạm Thanh Tùng,</span>
+        <em data-i18n="page.about.titleem">Generalist 3D &amp; Technical Artist.</em>
+      </h1>
+      <p class="lede" data-i18n="page.about.lede">3+ years building maps, shaders and tools for mobile MMORPGs and Nintendo Switch / PC / PS titles.</p>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="about-grid" data-reveal>
+          <div class="about-portrait">
+            <image-slot id="portrait" placeholder="Drop portrait (3:4)"></image-slot>
+          </div>
+
+          <div>
+            <div class="about-text">
+              <p data-i18n="about.bio.p1">I'm a Generalist 3D Artist with a Technical Art lean, based in Hà Nội. My day-to-day is building scenes and maps that ship — blockout, set-dressing, lighting, and the optimization pass that makes them run on the target device.</p>
+              <p data-i18n="about.bio.p2">I've worked on mobile MMORPGs as well as a handful of titles for Nintendo Switch, PC and PlayStation. My main engine is Unity (Built-in, URP, Shader Graph, Editor scripting) and I work in Unreal for console projects.</p>
+              <p data-i18n="about.bio.p3">Alongside art, I write tools — Unity Editor utilities in C# and pipeline / DCC automation in Python (with Qt UIs) — to cut repeat work and keep our team's builds clean.</p>
+              <p data-i18n="about.bio.p4">What I'm chasing right now: going deeper as a Technical Artist, raising visual quality without hurting frame budgets, and shortening the path from concept to a playable scene.</p>
+            </div>
+
+            <div class="factsheet" aria-label="Fact sheet">
+              <div class="row"><div class="k">Name</div><div class="v">Phạm Thanh Tùng</div></div>
+              <div class="row"><div class="k">Role</div><div class="v">Generalist 3D · Technical Artist</div></div>
+              <div class="row"><div class="k">Based</div><div class="v">Hà Nội, Việt Nam (UTC+7)</div></div>
+              <div class="row"><div class="k">Experience</div><div class="v">3+ years (since 2022)</div></div>
+              <div class="row"><div class="k">Current</div><div class="v">Generalist 3D &amp; Technical Artist · SaboGame · 2025 → now</div></div>
+              <div class="row"><div class="k">Previously</div><div class="v">Generalist 3D · Kamework Studio · 2023 – 2025</div></div>
+              <div class="row"><div class="k">Languages</div><div class="v">Tiếng Việt (native), English (technical reading)</div></div>
+              <div class="row"><div class="k">Status</div><div class="v" style="color:var(--accent)">● Open · 2026 Q2 · FT or Contract</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS / INSPECTOR ============================================== -->
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head" data-reveal>
+          <div class="label">
+            <span class="num" data-i18n="skills.num">04 / Stack</span>
+            <span data-i18n="skills.label">Skills &amp; Tools</span>
+          </div>
+          <div>
+            <h2 data-i18n="skills.title">What's in the inspector.</h2>
+            <p class="lede" data-i18n="skills.lede">Day-to-day tools, organised the way I'd lay them out in an Inspector panel. Items in mint are the ones I reach for first.</p>
+          </div>
+        </div>
+
+        <div class="inspector" data-reveal>
+          <div class="inspector-panel">
+            <div class="inspector-head"><span data-i18n="skills.engines">Engines &amp; Pipelines</span><span class="count">06</span></div>
+            <div class="inspector-body">
+              <span class="skill primary">Unity Built-in RP</span>
+              <span class="skill primary">Unity URP</span>
+              <span class="skill primary">Shader Graph</span>
+              <span class="skill primary">Unity Editor Scripting</span>
+              <span class="skill">Unreal Engine</span>
+              <span class="skill">GitLab · LFS</span>
+            </div>
+          </div>
+
+          <div class="inspector-panel">
+            <div class="inspector-head"><span data-i18n="skills.dcc">3D / 2D Software</span><span class="count">06</span></div>
+            <div class="inspector-body">
+              <span class="skill primary">Blender</span>
+              <span class="skill">Maya</span>
+              <span class="skill">ZBrush</span>
+              <span class="skill primary">Substance Painter</span>
+              <span class="skill">Marmoset Toolbag</span>
+              <span class="skill">Photoshop</span>
+            </div>
+          </div>
+
+          <div class="inspector-panel">
+            <div class="inspector-head"><span data-i18n="skills.programming">Programming</span><span class="count">06</span></div>
+            <div class="inspector-body">
+              <span class="skill primary">C# (Unity)</span>
+              <span class="skill primary">Python · PySide / Qt</span>
+              <span class="skill primary">HLSL</span>
+              <span class="skill">Shader Graph</span>
+              <span class="skill">SQL (basic)</span>
+              <span class="skill">Git / GitLab</span>
+            </div>
+          </div>
+
+          <div class="inspector-panel">
+            <div class="inspector-head"><span data-i18n="skills.specialties">Specialties</span><span class="count">08</span></div>
+            <div class="inspector-body">
+              <span class="skill primary">Modeling (low / high poly)</span>
+              <span class="skill">Retopology</span>
+              <span class="skill">UV Layout</span>
+              <span class="skill">Baking</span>
+              <span class="skill primary">Lighting</span>
+              <span class="skill">Hand-paint</span>
+              <span class="skill primary">PBR Texturing</span>
+              <span class="skill">Digital Painting</span>
+            </div>
+          </div>
+
+          <div class="inspector-panel" style="grid-column:span 2">
+            <div class="inspector-head"><span data-i18n="skills.other">Other</span><span class="count">04</span></div>
+            <div class="inspector-body">
+              <span class="skill">Generative AI for 2D / 3D Asset</span>
+              <span class="skill">AI-Assisted Coding (Claude Code) · Tooling, Shader R&amp;D</span>
+              <span class="skill">English · Technical Reading</span>
+              <span class="skill">Mobile Performance Profiling</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOOLS / SCRIPTS ================================================= -->
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head" data-reveal>
+          <div class="label">
+            <span class="num" data-i18n="tools.num">05 / Builds</span>
+            <span data-i18n="tools.label">Tools / Scripts</span>
+          </div>
+          <div>
+            <h2 data-i18n="tools.title">Tools I've written for art teams.</h2>
+            <p class="lede" data-i18n="tools.lede">Small Unity Editor utilities and Python pipeline scripts that pay for themselves in a sprint.</p>
+          </div>
+        </div>
+
+        <div class="toolsgrid" data-reveal>
+          <div class="toolcard">
+            <div class="toolcard-head"><span class="lang cs">C#</span><span class="name">BatchAssetImporter.cs</span></div>
+            <div class="toolcard-body">
+              <h4 data-i18n="tool.batch.title">Batch Asset Importer</h4>
+              <p data-i18n="tool.batch.body">Unity Editor window for art-team batch import / export with naming convention checks, FBX import preset routing, and a dry-run preview. Handles a few hundred meshes per pass.</p>
+            </div>
+            <div class="toolcard-foot"><span class="ok">●</span><span data-i18n="tool.batch.foot">shipped · in daily use</span></div>
+          </div>
+
+          <div class="toolcard">
+            <div class="toolcard-head"><span class="lang cs">C#</span><span class="name">AssetAuditWindow.cs</span></div>
+            <div class="toolcard-body">
+              <h4 data-i18n="tool.audit.title">Asset Audit Tool</h4>
+              <p data-i18n="tool.audit.body">Editor scanner that walks a Resources folder and flags poly-count, texture size, draw call and memory budget violations against per-tier rules. Outputs a CSV report for producers.</p>
+            </div>
+            <div class="toolcard-foot"><span class="ok">●</span><span data-i18n="tool.audit.foot">shipped · MMORPG mobile</span></div>
+          </div>
+
+          <div class="toolcard">
+            <div class="toolcard-head"><span class="lang cs">C#</span><span class="name">PivotOriginReset.cs</span></div>
+            <div class="toolcard-body">
+              <h4 data-i18n="tool.pivot.title">Pivot &amp; Origin Reset</h4>
+              <p data-i18n="tool.pivot.body">Right-click context menu in the Project window — pick a vertex, the bottom-center, or the bounding box, and the script bakes a new pivot via a dummy parent transform.</p>
+            </div>
+            <div class="toolcard-foot"><span class="ok">●</span><span data-i18n="tool.pivot.foot">shipped · saves 20m / day</span></div>
+          </div>
+
+          <div class="toolcard">
+            <div class="toolcard-head"><span class="lang cs">C#</span><span class="name">PreBuildValidator.cs</span></div>
+            <div class="toolcard-body">
+              <h4 data-i18n="tool.validator.title">Pre-build Validator</h4>
+              <p data-i18n="tool.validator.body">Pre-build hook that runs before pushing to GitLab — checks LOD setup, collider presence, texture compression overrides, missing references, and breaks the build with a readable report if anything's off.</p>
+            </div>
+            <div class="toolcard-foot"><span class="ok">●</span><span data-i18n="tool.validator.foot">shipped · CI gate</span></div>
+          </div>
+
+          <div class="toolcard">
+            <div class="toolcard-head"><span class="lang py">PY</span><span class="name">dcc_pipeline.py</span></div>
+            <div class="toolcard-body">
+              <h4 data-i18n="tool.dcc.title">DCC Automation (Python)</h4>
+              <p data-i18n="tool.dcc.body">Maya / Blender side-scripts with PySide / Qt UIs — batch UV layout, retopo cleanup helpers, and an export-to-Unity wrapper that enforces our scale, axis and naming rules at source.</p>
+            </div>
+            <div class="toolcard-foot"><span class="ok">●</span><span data-i18n="tool.dcc.foot">internal · 2 studios</span></div>
+          </div>
+
+          <div class="toolcard">
+            <div class="toolcard-head"><span class="lang hlsl">HLSL</span><span class="name">env_shader_pack.shader</span></div>
+            <div class="toolcard-body">
+              <h4 data-i18n="tool.shaders.title">Environment Shader Pack</h4>
+              <p data-i18n="tool.shaders.body">URP Shader Graph + HLSL hybrid: water with foam masks, height-fog, vertex foliage wind, and a generic dissolve with edge-glow. Tuned for mid-tier mobile (Adreno 6xx and up).</p>
+            </div>
+            <div class="toolcard-foot"><span class="ok">●</span><span data-i18n="tool.shaders.foot">shipped · Phong Thần 3D</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="shell-footer"></div>
+  <script src="shell.js"></script>
+  <script>PTT.mount("about");</script>
+</body>
+</html>
