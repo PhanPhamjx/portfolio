@@ -169,7 +169,7 @@ export const publishedProjects = [
     id: 'phong-than-3d',
     title: 'Phong Thần 3D',
     role: 'Generalist 3D Artist & TA',
-    client: 'SaboGame',
+    client: '',
     engine: 'Unity (Built-in)',
     year: '2025',
     platform: 'Mobile',
@@ -274,7 +274,7 @@ export const publishedProjects = [
     id: 'kiem-hiep-tinh',
     title: 'Kiếm Hiệp Tình',
     role: 'Generalist 3D Artist',
-    client: 'SaboGame',
+    client: '',
     engine: 'Unity (Built-in)',
     year: '2025',
     platform: 'Mobile',
@@ -416,7 +416,7 @@ export const tools = [
 
 // ── Experience ───────────────────────────────────────────────────────────────
 export const experience = [
-  { title: 'Generalist 3D Artist & Technical Artist', company: 'Sabo Game', period: '2025 – Present', highlights: ['Làm và tối ưu asset cho MMORPG mobile — tinh chỉnh poly count, texture size, draw call và memory budget', 'Viết tool Unity Editor (C#) tự động hoá batch import/export, asset audit', 'Làm shader và VFX cho môi trường in-game trên Unity URP', 'Tham gia level design, lighting setup; đề xuất module để tái sử dụng asset'] },
+  { title: 'Generalist 3D Artist & Technical Artist', company: '', period: '2025 – Present', highlights: ['Làm và tối ưu asset cho MMORPG mobile — tinh chỉnh poly count, texture size, draw call và memory budget', 'Viết tool Unity Editor (C#) tự động hoá batch import/export, asset audit', 'Làm shader và VFX cho môi trường in-game trên Unity URP', 'Tham gia level design, lighting setup; đề xuất module để tái sử dụng asset'] },
   { title: 'Generalist 3D Artist', company: 'Kamework Studio', period: '2023 – 2025', highlights: ['Modeling và texturing môi trường, nhân vật cho dự án console và mobile (Artdink, Square Enix)', 'Import và setup asset trong Unity / Unreal — scale, pivot, naming, LOD, collision', 'Xử lý note từ art director theo đúng yêu cầu kỹ thuật và mỹ thuật'] },
   { title: '3D Artist Intern', company: 'Thunder Cloud Studio', period: '2022', highlights: ['Modeling và texturing asset 3D theo yêu cầu dự án', 'Làm quen với pipeline outsource quy mô studio'] },
   { title: 'Freelance 3D Artist', company: 'Self-employed', period: '2022 – Present', highlights: ['Nhận dự án 3D ngắn hạn — hard-surface, prop và environment cho game indie', 'Thử nghiệm kỹ thuật mới ngoài phạm vi công việc full-time'] },

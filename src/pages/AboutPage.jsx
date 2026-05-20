@@ -29,7 +29,7 @@ const INSPECTOR_PANELS = [
     skills: [
       { label: 'C# (Unity)', primary: true },
       { label: 'Python · PySide / Qt', primary: true },
-      { label: 'HLSL', primary: true },
+      { label: 'HLSL', primary: false },
       { label: 'Shader Graph', primary: false },
       { label: 'SQL (basic)', primary: false },
       { label: 'Git / GitLab', primary: false },
@@ -73,7 +73,7 @@ export default function AboutPage() {
             </h1>
             <p className="lede">
               3+ years building maps, shaders and tools for mobile MMORPGs and
-              Nintendo Switch / PC / PS titles. Currently at SaboGame, headed deeper into Technical Art.
+              Nintendo Switch / PC / PS titles. Headed deeper into Technical Art.
             </p>
           </div>
         </Reveal>
@@ -105,14 +105,13 @@ export default function AboutPage() {
                     and I work in Unreal for console projects.
                   </p>
                   <p>
-                    Alongside art, I write tools — Unity Editor utilities in C# and pipeline / DCC automation
-                    in Python (with Qt UIs) — to cut repeat work and keep our team's builds clean. I'm
-                    comfortable enough in HLSL and Shader Graph to author production shaders and VFX for
-                    environments.
+                    On the side, I've been picking up Technical Art — writing Unity Editor utilities in C#
+                    and small Python scripts to help with repetitive pipeline tasks. I can work with Shader
+                    Graph and HLSL for straightforward shaders and VFX, though I'm still a junior on that side.
                   </p>
                   <p>
-                    What I'm chasing right now: going deeper as a Technical Artist, raising visual quality
-                    without hurting frame budgets, and shortening the path from concept to a playable scene.
+                    What I'm working toward: getting deeper into Technical Art, building better habits around
+                    optimization and tooling, and gradually moving from art toward TA work.
                   </p>
                 </div>
 
@@ -121,7 +120,7 @@ export default function AboutPage() {
                   <div className="row"><div className="k">Role</div><div className="v">Generalist 3D · Technical Artist</div></div>
                   <div className="row"><div className="k">Based</div><div className="v">Hà Nội, Việt Nam (UTC+7)</div></div>
                   <div className="row"><div className="k">Experience</div><div className="v">3+ years (since 2022)</div></div>
-                  <div className="row"><div className="k">Current</div><div className="v">Generalist 3D &amp; TA · SaboGame · 2025 → now</div></div>
+                  <div className="row"><div className="k">Current</div><div className="v">Generalist 3D &amp; TA · 2025 → now</div></div>
                   <div className="row"><div className="k">Previously</div><div className="v">Generalist 3D · Kamework Studio · 2023 – 2025</div></div>
                   <div className="row"><div className="k">Languages</div><div className="v">Tiếng Việt (native), English (technical reading)</div></div>
                   <div className="row"><div className="k">Status</div><div className="v accent">● Open · 2026 Q2 · FT or Contract</div></div>

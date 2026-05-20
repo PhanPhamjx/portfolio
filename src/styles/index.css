@@ -938,7 +938,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   overflow: hidden;
   cursor: pointer;
 }
-.gallery-img-row img { width: 100%; height: auto; display: block; transition: transform .35s; }
+.gallery-img-row img { max-width: 100%; width: auto; height: auto; display: block; margin: 0 auto; transition: transform .35s; }
 .gallery-img-row:hover img { transform: scale(1.02); }
 .gallery-img-row .cap {
   position: absolute; bottom: 10px; left: 10px;

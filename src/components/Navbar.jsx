@@ -68,14 +68,6 @@ export default function Navbar() {
         </nav>
 
         <div className="headeractions">
-          <a
-            href="cv.pdf"
-            download="PhamThanhTung_CV.pdf"
-            className="btn primary statusbar-hide-sm"
-            style={{ fontSize: 13, padding: '8px 16px', letterSpacing: '0.08em' }}
-          >
-            Download CV <span className="arrow">↓</span>
-          </a>
           <button
             className={`nav-hamburger${open ? ' is-open' : ''}`}
             onClick={() => setOpen(v => !v)}
@@ -125,15 +117,6 @@ export default function Navbar() {
               {theme === 'dark' ? '☀ Light' : '◑ Dark'}
             </button>
           </div>
-          <a
-            href="cv.pdf"
-            download="PhamThanhTung_CV.pdf"
-            className="btn primary"
-            style={{ display: 'flex', justifyContent: 'center', width: '100%', marginBottom: 8 }}
-            onClick={close}
-          >
-            Download CV <span className="arrow">↓</span>
-          </a>
           <a
             href="mailto:phamtung.gamedev@gmail.com"
             className="btn"

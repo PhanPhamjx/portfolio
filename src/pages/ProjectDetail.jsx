@@ -237,22 +237,28 @@ export default function ProjectDetail() {
       )}
 
       {/* ─── GALLERY ─── */}
-      {hasImages && (
-        <Reveal>
-          <div style={{ marginBottom: 64 }}>
-            <span className="eyebrow">{hasVideos ? '05' : '04'} / {t.detail.gallery}</span>
-            <h3 style={{ fontFamily: 'var(--ff-display)', fontWeight: 500, fontSize: 22, marginBottom: 14 }}>
-              {t.detail.gallery}
-              {project.images.length > 6 && (
-                <span style={{ fontSize: 13, fontFamily: 'var(--ff-mono)', color: 'var(--fg2)', marginLeft: 12 }}>
-                  {project.images.length} {t.detail.images}
-                </span>
-              )}
-            </h3>
-            <Gallery images={project.images} title={project.title} />
-          </div>
-        </Reveal>
-      )}
+      {hasImages && (() => {
+        const galleryImages = project.images
+          .slice(1)
+          .filter(src => !/panel/i.test(src.split('/').pop()));
+        if (galleryImages.length === 0) return null;
+        return (
+          <Reveal>
+            <div style={{ marginBottom: 64 }}>
+              <span className="eyebrow">{hasVideos ? '05' : '04'} / {t.detail.gallery}</span>
+              <h3 style={{ fontFamily: 'var(--ff-display)', fontWeight: 500, fontSize: 22, marginBottom: 14 }}>
+                {t.detail.gallery}
+                {galleryImages.length > 6 && (
+                  <span style={{ fontSize: 13, fontFamily: 'var(--ff-mono)', color: 'var(--fg2)', marginLeft: 12 }}>
+                    {galleryImages.length} {t.detail.images}
+                  </span>
+                )}
+              </h3>
+              <Gallery images={galleryImages} title={project.title} />
+            </div>
+          </Reveal>
+        );
+      })()}
 
       {/* ─── NAV ─── */}
       <div className="project-nav">

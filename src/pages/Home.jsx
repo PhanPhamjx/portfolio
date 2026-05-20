@@ -14,13 +14,13 @@ const MARQUEE_TITLES = [
 const CREDITS = [
   {
     year: '2025', id: 'phong-than-3d',
-    title: 'Phong Thần 3D', sub: 'SaboGame · MMORPG',
+    title: 'Phong Thần 3D', sub: 'MMORPG',
     role: 'Environment · Lighting · Shaders / VFX',
     platforms: [{ cls: 'mobile', label: 'Mobile' }], engine: 'Unity URP',
   },
   {
     year: '2025', id: 'kiem-hiep-tinh',
-    title: 'Kiếm Hiệp Tình', sub: 'SaboGame · 2D MMORPG',
+    title: 'Kiếm Hiệp Tình', sub: '2D MMORPG',
     role: '2D Map Build · Tile Blending · Gen-AI Pipeline',
     platforms: [{ cls: 'mobile', label: 'Mobile' }], engine: 'Unity 2D',
   },
